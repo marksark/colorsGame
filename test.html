@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Circles</title>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='paper-full.js'></script>
+    <link rel="stylesheet" type='text/css' href="circles.css">
+    <script type="text/paperscript" canvas="myCanvas">
+    function onKeyDown(event) {
+        var maxPoint= new Point(view.size.width, view.size.height);
+        var randomPoint = Point.random();
+        var point = maxPoint * randomPoint;
+        new Path.Circle(point, 10).fillColor = "orange");
+    }
+    var animatedCircle = new Path.Circle(new Point(300,300), 100);
+    animatedCircle.fillColor = "red";
+
+    function onFrame(event){
+      animatedCircle.fillColor.hue += 1;
+      animatedCircle.scale(.9);
+    }
+  </script>
+  </head>
+  <body>
+<canvas id='myCanvas' resize></canvas>
+  </body>
+</html>
